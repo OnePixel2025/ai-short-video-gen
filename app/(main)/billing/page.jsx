@@ -11,7 +11,8 @@ import { useLanguage } from '@/app/_context/LanguageContext'
 import { getTranslation } from '@/lib/translations';
 import StripePayment from './_components/StripePayment';
 import VodafoneCash from './_components/VodafoneCash';
-export const creditsPlans = [
+
+const creditsPlans = [
     {
         credits: 10,
         cost: 1
@@ -33,6 +34,7 @@ export const creditsPlans = [
         cost: 30
     }
 ]
+
 function Billing() {
     const { user, setUser } = useAuthContext();
     const { language } = useLanguage();
