@@ -27,6 +27,7 @@ export async function POST(request) {
     switch (event.type) {
         case 'payment_intent.succeeded':
             const paymentIntent = event.data.object;
+<<<<<<< HEAD
             const credits = parseInt(paymentIntent.metadata.credits);
             const customerEmail = paymentIntent.receipt_email;
             
@@ -56,6 +57,20 @@ export async function POST(request) {
             } catch (error) {
                 console.error('Error updating user credits:', error);
             }
+=======
+            const credits = paymentIntent.metadata.credits;
+            
+            // Here you would typically:
+            // 1. Find the user who made the payment
+            // 2. Add credits to their account
+            // 3. Send confirmation email
+            
+            console.log('Payment succeeded:', paymentIntent.id);
+            console.log('Credits to add:', credits);
+            
+            // You might want to store the payment info in your database
+            // and then update user credits based on the payment intent ID
+>>>>>>> 5ccd0ee9b294dde9057bbcb85d0de6355f0cec47
             
             break;
         case 'payment_intent.payment_failed':
