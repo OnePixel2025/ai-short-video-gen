@@ -10,7 +10,7 @@ import { getAuth } from "firebase/auth";
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: "ai-short-video-generator-eefec.firebaseapp.com",
-  projectId: "ai-short-video-generator-eefec",
+  projectId: "ai-short-video-generator-eefec", 
   storageBucket: "ai-short-video-generator-eefec.firebasestorage.app",
   messagingSenderId: "491074912236",
   appId: "1:491074912236:web:c1801d1c6eeb1f3a3bcac9",
