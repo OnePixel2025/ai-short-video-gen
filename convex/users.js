@@ -1,9 +1,5 @@
 import { v } from "convex/values";
-<<<<<<< HEAD
 import { mutation, query } from "./_generated/server";
-=======
-import { mutation } from "./_generated/server";
->>>>>>> 5ccd0ee9b294dde9057bbcb85d0de6355f0cec47
 
 export const CreateNewUser = mutation({
     args: {
@@ -52,7 +48,6 @@ export const UpdateUserCredits = mutation({
         });
         return result
     }
-<<<<<<< HEAD
 });
 
 export const getAllUsers = query({
@@ -71,6 +66,3 @@ export const getUserByEmail = query({
             .first();
     }
 });
-=======
-})
->>>>>>> 5ccd0ee9b294dde9057bbcb85d0de6355f0cec47
