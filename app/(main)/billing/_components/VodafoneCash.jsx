@@ -4,11 +4,7 @@ import { MessageCircle, Phone } from 'lucide-react';
 import { useLanguage } from '@/app/_context/LanguageContext';
 import { getTranslation } from '@/lib/translations';
 
-<<<<<<< HEAD
 const VodafoneCash = ({ plan, onPaymentSuccess }) => {
-=======
-const VodafoneCash = () => {
->>>>>>> 5ccd0ee9b294dde9057bbcb85d0de6355f0cec47
     const { language } = useLanguage();
     
     // WhatsApp number - you can change this to your actual WhatsApp number
@@ -16,13 +12,8 @@ const VodafoneCash = () => {
     
     const handleWhatsAppClick = () => {
         const message = language === 'ar' 
-<<<<<<< HEAD
             ? `مرحباً! أود الاشتراك في ${plan.name} ($${plan.price}/${plan.period}) باستخدام فودافون كاش أو فوري. يرجى مساعدتي في عملية الدفع.`
             : `Hello! I would like to subscribe to ${plan.name} ($${plan.price}/${plan.period}) using Vodafone Cash or Fawry. Please help me with the payment process.`;
-=======
-            ? 'مرحباً! أود الاشتراك باستخدام فودافون كاش أو فوري. يرجى مساعدتي في عملية الدفع.'
-            : 'Hello! I would like to subscribe using Vodafone Cash or Fawry. Please help me with the payment process.';
->>>>>>> 5ccd0ee9b294dde9057bbcb85d0de6355f0cec47
         const encodedMessage = encodeURIComponent(message);
         const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodedMessage}`;
         window.open(whatsappUrl, '_blank');
@@ -50,11 +41,7 @@ const VodafoneCash = () => {
                     
                     <Button 
                         onClick={handleWhatsAppClick}
-<<<<<<< HEAD
                         className="w-full bg-green-600 hover:bg-green-700 text-white"
-=======
-                        className="w-56 bg-green-600 hover:bg-green-700 text-white"
->>>>>>> 5ccd0ee9b294dde9057bbcb85d0de6355f0cec47
                     >
                         <MessageCircle className="w-4 h-4 mr-2" />
                         {getTranslation('contactUsWhatsApp', language)}
