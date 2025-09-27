@@ -29,11 +29,7 @@
     "axios": "^1.11.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-<<<<<<< HEAD
     "convex": "^1.27.3",
-=======
-    "convex": "^1.26.1",
->>>>>>> 5ccd0ee9b294dde9057bbcb85d0de6355f0cec47
     "dedent": "^1.5.3",
     "firebase": "^11.10.0",
     "googleapis": "^159.0.0",
