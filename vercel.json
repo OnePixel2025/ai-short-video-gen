@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "app.snapshort.io"
+        }
+      ],
+      "destination": "https://snapshort.io",
+      "permanent": true
+    }
+  ]
+}
