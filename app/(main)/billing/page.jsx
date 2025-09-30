@@ -4,24 +4,23 @@ import { Button } from '@/components/ui/button';
 import { api } from '@/convex/_generated/api';
 // import { PayPalButtons } from '@paypal/react-paypal-js';
 import { useMutation } from 'convex/react';
-import { CircleDollarSign, CreditCard, Wallet, Phone, Check, Star } from 'lucide-react';
-import React, { useState } from 'react'
+import { CircleDollarSign, Wallet, Phone, Check, Star } from 'lucide-react';
+import React from 'react'
 import { toast } from 'sonner';
 import { useLanguage } from '@/app/_context/LanguageContext'
 import { getTranslation } from '@/lib/translations';
-import StripePayment from './_components/StripePayment';
 import VodafoneCash from './_components/VodafoneCash';
 
 const pricingPlans = [
     {
-        id: 'discovery',
-        name: 'Discovery Plan',
-        price: 19,
+        id: 'Free',
+        name: 'Free Plan',
+        price: 0,
         period: 'per month',
-        credits: 10,
-        videos: '10 Videos per month',
+        credits: 5,
+        videos: '5 Videos per month',
         features: [
-            '10 credits',
+            '5 credits',
             'AI Prompt Writer',
             'AI Generated Style',
             'Premium Voices',
@@ -33,13 +32,13 @@ const pricingPlans = [
     },
     {
         id: 'pro',
-        name: 'Pro Plan',
-        price: 39,
-        period: 'per month',
+        name: 'Lifetime Plan',
+        price: 149,
+        period: 'one time',
         credits: 30,
-        videos: '30 Videos per month',
+        videos: '35 Videos per month',
         features: [
-            '30 credits',
+            '35 credits',
             'AI Prompt Writer',
             'AI Generated Style',
             'Premium Voices',
@@ -49,30 +48,12 @@ const pricingPlans = [
         ],
         isPopular: true
     },
-    {
-        id: 'business',
-        name: 'Business Plan',
-        price: 79,
-        period: 'per month',
-        credits: 60,
-        videos: '60 Videos per month',
-        features: [
-            '60 credits',
-            'AI Prompt Writer',
-            'AI Generated Style',
-            'Premium Voices',
-            'Background Music',
-            'AI Captions',
-            'No Watermark'
-        ],
-        isPopular: false
-    }
+    
 ]
 
 function Billing() {
     const { user, setUser } = useAuthContext();
     const { language } = useLanguage();
-    const [paymentMethod, setPaymentMethod] = useState('stripe'); // 'stripe', or 'vodafone' (paypal commented out)
     const updateUserCredits = useMutation(api.users.UpdateUserCredits)
     const onPaymentSuccess = async (plan) => {
         //Update User Credits
@@ -118,7 +99,7 @@ function Billing() {
                             {/* Popular Badge */}
                             {plan.isPopular && (
                                 <div className='absolute -top-3 left-1/2 transform -translate-x-1/2'>
-                                    <div className='bg-[#CCB535] text-white px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1'>
+                                    <div className='bg-[#CCB535] text-black px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1'>
                                         <Star className='w-3 h-3' />
                                         Most Popular
                                     </div>
@@ -159,41 +140,8 @@ function Billing() {
 
                             {/* Payment Options */}
                             <div className='space-y-3'>
-                                {/* Payment Method Selector */}
-                                <div className='flex gap-2 p-1 bg-gray-100 dark:bg-gray-700 rounded-lg'>
-                                    <button
-                                        onClick={() => setPaymentMethod('stripe')}
-                                        className={`flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-md transition-all text-sm ${
-                                            paymentMethod === 'stripe' 
-                                                ? 'bg-white dark:bg-gray-600 shadow-sm' 
-                                                : 'hover:bg-gray-50 dark:hover:bg-gray-600'
-                                        }`}
-                                    >
-                                        <CreditCard className='w-3 h-3' />
-                                        Stripe
-                                    </button>
-                                    <button
-                                        onClick={() => setPaymentMethod('vodafone')}
-                                        className={`flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-md transition-all text-sm ${
-                                            paymentMethod === 'vodafone' 
-                                                ? 'bg-white dark:bg-gray-600 shadow-sm' 
-                                                : 'hover:bg-gray-50 dark:hover:bg-gray-600'
-                                        }`}
-                                    >
-                                        <Phone className='w-3 h-3' />
-                                        Vodafone
-                                    </button>
-                                </div>
-
                                 {/* Payment Component */}
-                                {paymentMethod === 'stripe' ? (
-                                    <StripePayment 
-                                        plan={plan} 
-                                        onPaymentSuccess={onPaymentSuccess}
-                                    />
-                                ) : (
-                                    <VodafoneCash plan={plan} onPaymentSuccess={onPaymentSuccess} />
-                                )}
+                                <VodafoneCash plan={plan} onPaymentSuccess={onPaymentSuccess} />
                             </div>
                         </div>
                     ))}
