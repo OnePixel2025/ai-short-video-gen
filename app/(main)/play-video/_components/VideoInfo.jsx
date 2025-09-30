@@ -115,13 +115,6 @@ function VideoInfo({ videoData }) {
 
     const handleShare = async (platform) => {
         switch (platform) {
-            case 'tiktok':
-                window.open('https://www.tiktok.com/upload', '_blank');
-                break;
-
-            case 'instagram':
-                window.open('https://www.instagram.com/post', '_blank');
-                break;
 
             case 'youtube':
                 try {
@@ -181,25 +174,11 @@ function VideoInfo({ videoData }) {
                     </a>
 
                     <h2 className="mt-5 font-semibold">{getTranslation('shareOnSocialMedia', language)}</h2>
-                    <div className="flex flex-col sm:flex-row gap-2 mt-2">
-                        <Button
-                            onClick={() => handleShare('tiktok')}
-                            className="flex-1 bg-gradient-to-r from-rose-700 via-purple-700 to-cyan-700 text-white hover:brightness-90 transition duration-200 ease-in-out will-change-auto font-semibold text-sm"
-                        >
-                            <FaTiktok className="mr-2" /> TikTok
-                        </Button>
-
-                        <Button
-                            onClick={() => handleShare('instagram')}
-                            className="flex-1 bg-gradient-to-r from-red-700 via-yellow-700 to-fuchsia-700 text-white hover:brightness-90 transition duration-200 ease-in-out will-change-auto font-semibold text-sm"
-                        >
-                            <FaInstagram className="mr-2" /> Instagram
-                        </Button>
 
                         <Button
                             onClick={() => handleShare('youtube')}
                             disabled={isUploading}
-                            className="flex-1 bg-gradient-to-r from-red-500 via-red-800 to-red-500 text-white hover:brightness-90 transition duration-200 ease-in-out will-change-auto font-semibold text-sm"
+                            className="flex-1 w-52 bg-gradient-to-r from-red-500 via-red-800 to-red-500 text-white hover:brightness-90 transition duration-200 ease-in-out will-change-auto font-semibold text-sm"
                         >
                             {isUploading ? (
                             <RefreshCcw className="mr-2 animate-spin" />
@@ -208,7 +187,6 @@ function VideoInfo({ videoData }) {
                             )}
                             YouTube
                         </Button>
-                        </div>
 
                     </>
                 ) : (
