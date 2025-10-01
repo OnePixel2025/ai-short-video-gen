@@ -1,7 +1,9 @@
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-//import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -9,15 +11,15 @@ import { getAuth } from "firebase/auth";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: "ai-short-video-generator-eefec.firebaseapp.com",
-  projectId: "ai-short-video-generator-eefec", 
-  storageBucket: "ai-short-video-generator-eefec.firebasestorage.app",
-  messagingSenderId: "491074912236",
-  appId: "1:491074912236:web:c1801d1c6eeb1f3a3bcac9",
-  measurementId: "G-VPRBEDJY8J"
-}; 
+  authDomain: "snapshort-saas.firebaseapp.com",
+  projectId: "snapshort-saas",
+  storageBucket: "snapshort-saas.firebasestorage.app",
+  messagingSenderId: "145049913807",
+  appId: "1:145049913807:web:7a2a11e54829116e706aba",
+  measurementId: "G-L2GHPXHR86"
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-//const analytics = getAnalytics(app);
-export const auth=getAuth(app);
+export const auth = getAuth(app);
+export const db = getFirestore(app);
