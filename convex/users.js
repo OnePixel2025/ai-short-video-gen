@@ -25,14 +25,14 @@ export const CreateNewUser = mutation({
             email: args.email,
             pictureURL: args.pictureURL,
             firebaseUID: args.firebaseUID,
-            credits: 5.0,
+            credits: 3.0,
             createdAt: new Date().toISOString()
         });
 
         return {
             _id: userId,
             ...args,
-            credits: 5.0
+            credits: 3.0
         };
     }
 });

@@ -17,10 +17,10 @@ const pricingPlans = [
         name: 'Free Plan',
         price: 0,
         period: 'per month',
-        credits: 5,
-        videos: '5 Videos per month',
+        credits: 3,
+        videos: '3 Videos per month',
         features: [
-            '5 credits',
+            '3 credits',
             'AI Prompt Writer',
             'AI Generated Style',
             'Premium Voices',
