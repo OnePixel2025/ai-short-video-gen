@@ -6,11 +6,21 @@ function DashboardLayout({ children }) {
     return (
         <>
             <Script
-                src="https://app.tubetoolsai.com/Modules/Chatbot/Resources/assets/js/chatbot-widget.min.js"
+                id="tawk-to"
                 strategy="afterInteractive"
-                data-iframe-src="https://app.tubetoolsai.com/chatbot/embed/chatbot_code=bfe044541ece4c8/welcome"
-                data-iframe-height="532"
-                data-iframe-width="400"
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+                        (function(){
+                            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                            s1.async=true;
+                            s1.src='https://embed.tawk.to/6912174f5805cd195914d545/1j9nam4dq';
+                            s1.charset='UTF-8';
+                            s1.setAttribute('crossorigin','*');
+                            s0.parentNode.insertBefore(s1,s0);
+                        })();
+                    `.replace(/\s+/g, ' ')
+                }}
             />
             <div suppressHydrationWarning={true}>
                 <DashboardProvider>
