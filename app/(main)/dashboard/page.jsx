@@ -13,6 +13,11 @@ function Dashboard() {
             <PromotionalBanner />
             <h2 className='font-bold text-3xl'>{getTranslation('myVideos', language)}</h2>
             <VideoList />
+
+            <div
+                className="elfsight-app-76811890-7957-40e8-a770-9eb3ac2f215b"
+                data-elfsight-app-lazy
+            />
         </div>
     )
 }
