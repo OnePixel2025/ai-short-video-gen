@@ -18,7 +18,7 @@ const pricingPlans = [
         price: 0,
         period: 'per month',
         credits: 3,
-        videos: '3 Videos per month',
+        videos: '3 Videos',
         features: [
             '3 credits',
             'AI Prompt Writer',
