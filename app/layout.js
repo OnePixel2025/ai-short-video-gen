@@ -1,3 +1,4 @@
+import Script from "next/script";
 import { Plus_Jakarta_Sans } from "next/font/google"; // Import the font in here
 import "./globals.css";
 import Provider from "./provider";
@@ -28,6 +29,18 @@ export default function RootLayout({ children }) {
       <body
         className={plusJakartaSans.className}
       >
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-3K6QWFNRW5"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-3K6QWFNRW5');
+          `}
+        </Script>
         <ConvexClientProvider>
           {children}
           <Toaster />
