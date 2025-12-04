@@ -25,14 +25,14 @@ export const CreateNewUser = mutation({
             email: args.email,
             pictureURL: args.pictureURL,
             firebaseUID: args.firebaseUID,
-            credits: 3.0,
+            credits: 0.0,
             createdAt: new Date().toISOString()
         });
 
         return {
             _id: userId,
             ...args,
-            credits: 3.0
+            credits: 0.0
         };
     }
 });
@@ -64,5 +64,12 @@ export const getUserByEmail = query({
             .query("users")
             .filter((q) => q.eq(q.field("email"), args.email))
             .first();
+    }
+});
+
+export const getUserById = query({
+    args: { userId: v.id("users") },
+    handler: async (ctx, args) => {
+        return await ctx.db.get(args.userId);
     }
 });

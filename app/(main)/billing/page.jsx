@@ -9,18 +9,18 @@ import React from 'react'
 import { toast } from 'sonner';
 import { useLanguage } from '@/app/_context/LanguageContext'
 import { getTranslation } from '@/lib/translations';
-import VodafoneCash from './_components/VodafoneCash';
+import StripeCheckout from './_components/StripeCheckout';
 
 const pricingPlans = [
     {
-        id: 'Free',
-        name: 'Free Plan',
-        price: 0,
-        period: 'per month',
-        credits: 3,
-        videos: '3 Videos',
+        id: 'test',
+        name: 'Test Plan',
+        price: 0.1,
+        period: 'one time',
+        credits: 1,
+        videos: '1 Video',
         features: [
-            '3 credits',
+            '1 credit',
             'AI Prompt Writer',
             'AI Generated Style',
             'Premium Voices',
@@ -32,19 +32,20 @@ const pricingPlans = [
     },
     {
         id: 'pro',
-        name: 'Lifetime Plan',
-        price: 149,
-        period: 'one time',
+        name: 'Monthly Plan',
+        price: 19,
+        period: 'Monthly',
         credits: 30,
-        videos: '35 Videos per month',
+        videos: '30 Videos',
         features: [
-            '35 credits',
+            '30 credits',
             'AI Prompt Writer',
             'AI Generated Style',
             'Premium Voices',
             'Background Music',
             'AI Captions',
-            'No Watermark'
+            'No Watermark',
+            'Schedule Social media'
         ],
         isPopular: true
     },
@@ -141,7 +142,7 @@ function Billing() {
                             {/* Payment Options */}
                             <div className='space-y-3'>
                                 {/* Payment Component */}
-                                <VodafoneCash plan={plan} onPaymentSuccess={onPaymentSuccess} />
+                                <StripeCheckout plan={plan} onPaymentSuccess={onPaymentSuccess} />
                             </div>
                         </div>
                     ))}
