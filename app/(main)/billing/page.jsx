@@ -15,7 +15,7 @@ const pricingPlans = [
     {
         id: 'test',
         name: 'Test Plan',
-        price: 0.1,
+        price: 1,
         period: 'one time',
         credits: 1,
         videos: '1 Video',
