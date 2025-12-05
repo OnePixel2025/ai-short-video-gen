@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { api } from '@/convex/_generated/api';
 // import { PayPalButtons } from '@paypal/react-paypal-js';
 import { useMutation } from 'convex/react';
-import { CircleDollarSign, Wallet, Phone, Check, Star } from 'lucide-react';
+import { CircleDollarSign, Wallet, Phone, Check, Star, Youtube } from 'lucide-react';
 import React from 'react'
 import { toast } from 'sonner';
 import { useLanguage } from '@/app/_context/LanguageContext'
@@ -12,24 +12,6 @@ import { getTranslation } from '@/lib/translations';
 import StripeCheckout from './_components/StripeCheckout';
 
 const pricingPlans = [
-    {
-        id: 'test',
-        name: 'Test Plan',
-        price: 1,
-        period: 'one time',
-        credits: 1,
-        videos: '1 Video',
-        features: [
-            '1 credit',
-            'AI Prompt Writer',
-            'AI Generated Style',
-            'Premium Voices',
-            'Background Music',
-            'AI Captions',
-            'No Watermark'
-        ],
-        isPopular: false
-    },
     {
         id: 'pro',
         name: 'Monthly Plan',
@@ -132,8 +114,11 @@ function Billing() {
                                 {plan.features.map((feature, index) => (
                                     <div key={index} className='flex items-center gap-2'>
                                         <Check className='w-4 h-4 text-[#CCB535] flex-shrink-0' />
-                                        <span className='text-sm text-gray-700 dark:text-gray-300'>
+                                        <span className='text-sm text-gray-700 dark:text-gray-300 flex items-center gap-2'>
                                             {feature}
+                                            {feature === 'Schedule Social media' && (
+                                                <Youtube className='w-4 h-4 text-red-600 flex-shrink-0' />
+                                            )}
                                         </span>
                                     </div>
                                 ))}
